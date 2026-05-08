@@ -1,11 +1,13 @@
 import { dlopen, FFIType, ptr } from "bun:ffi";
+import { outro } from "@clack/prompts";
 
 let documentsPath: string | null = null;
 
 export const getDocumentsPath = () => {
 
     if (process.platform !== 'win32') {
-        throw new Error("This application only runs on Windows and is unavailable on platform \`" + process.platform + "\`");
+        outro("This application only runs on Windows and is unavailable on platform \`" + process.platform + "\`");
+        process.exit(1);
     }
 
     if (documentsPath !== null) {
@@ -50,7 +52,6 @@ export const getDocumentsPath = () => {
         const stringLength = pathBuffer.indexOf(0);
         const activeBuffer = stringLength !== -1 ? pathBuffer.subarray(0, stringLength) : pathBuffer;
 
-        // Decode the UTF-16 buffer into a standard JavaScript string
         // Decode the UTF-16 buffer directly using Bun's native Buffer
         documentsPath = Buffer.from(activeBuffer.buffer, activeBuffer.byteOffset, activeBuffer.byteLength).toString("utf16le");
 
