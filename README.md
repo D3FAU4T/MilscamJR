@@ -2,6 +2,11 @@
 
 This repository includes source code and release bundles for MilscamsJR bot. The project is currently unfinished and a Work In Progress.
 
+## Commands
+
+- `!socials`: Announces all of his socials in his Twitch chat
+- `!quit`: Closes the program
+
 To install dependencies:
 
 ```bash
