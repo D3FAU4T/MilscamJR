@@ -1,15 +1,22 @@
 {
   "name": "milscamsjr",
   "module": "index.ts",
-  "type": "module",
-  "private": true,
   "devDependencies": {
     "@types/bun": "^1.3.13"
   },
   "peerDependencies": {
     "typescript": "^6.0.3"
   },
+  "private": true,
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "bun run clean && bun run ./src/core/build.ts"
+  },
+  "type": "module",
   "dependencies": {
-    "twitch": "github:D3FAU4T/Twitch"
+    "@clack/prompts": "^1.3.0",
+    "picocolors": "^1.1.1",
+    "twitch": "git+https://github.com/D3FAU4T/Twitch.git",
+    "zod": "^4.4.3"
   }
 }
