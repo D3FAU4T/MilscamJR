@@ -9,7 +9,7 @@ const result = await Bun.build({
             version: "0.1.0",
             publisher: "D3FAU4T",
             icon: "icon.ico",
-            copyright: "None"
+            copyright: "https://raw.githubusercontent.com/D3FAU4T/MilscamJR/refs/heads/main/LICENSE"
         }
     }
 });
